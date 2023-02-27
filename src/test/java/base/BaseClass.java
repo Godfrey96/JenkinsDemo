@@ -24,8 +24,12 @@ public class BaseClass {
             System.setProperty("webdriver.gecko.driver", readConfig.getChromePath());
             driver = new FirefoxDriver();
         }
-        driver.manage().window().maximize();
-        driver.get(baseURL);
+        try {
+            driver.manage().window().maximize();
+            driver.get(baseURL);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 //    public void setup() {
 //        if (System.getProperty("browser").equalsIgnoreCase("Chrome")) {
