@@ -47,6 +47,10 @@ public class BaseClass {
 
     @AfterMethod
     public void tearDown() {
-        driver.close();
+        try {
+            driver.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
