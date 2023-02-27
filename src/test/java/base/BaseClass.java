@@ -15,7 +15,7 @@ public class BaseClass {
     WebDriver driver;
 
     @Parameters("browser")
-    @BeforeClass
+    @BeforeMethod
     public void setup(String br) {
         if (br.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", readConfig.getChromePath());
@@ -45,7 +45,7 @@ public class BaseClass {
 //        driver.manage().window().maximize();
 //    }
 
-    @AfterClass
+    @AfterMethod
     public void tearDown() {
         driver.close();
     }
